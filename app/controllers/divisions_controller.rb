@@ -1,7 +1,7 @@
 class DivisionsController < ApplicationController
   
   def index
-    @divisions = Division.all
+    respond_with(Division.all)
   end
 
 end
