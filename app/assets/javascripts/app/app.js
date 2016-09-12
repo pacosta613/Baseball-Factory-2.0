@@ -1,11 +1,12 @@
 angular
-  .module('app', ['ui.router', 'templates', 'ngMessages'])
+  .module('app', ['ui.router', 'templates'])
   .config(function($stateProvider, $urlRouterProvider) {
+
     $stateProvider
-      .state("league", {
+      .state("home", {
         url: '/',
         templateUrl: 'home.html',
-        controller: 'DivisionsController as ctrl'
+        controller: 'HomeController as ctrl'
       })
       .state("division.new", {
         url: 'new',
@@ -29,5 +30,4 @@ angular
       });
 
     $urlRouterProvider.otherwise("/");
-
   });
