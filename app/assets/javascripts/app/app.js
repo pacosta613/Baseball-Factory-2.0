@@ -3,27 +3,26 @@ angular
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-      .state("home", {
+      .state("league", {
         url: '/',
-        templateUrl: 'home.html',
-        controller: 'HomeController as ctrl'
+        templateUrl: 'home.html'
       })
-      .state("division.new", {
+      .state("league.new", {
         url: 'new',
         templateUrl: 'division/new.html',
         controller: 'DivisionsController as ctrl'
       })
-      .state('division.divisions', {
+      .state('league.divisions', {
         url: 'divisions',
         templateUrl: 'division/divisions.html',
         controller: 'DivisionsController as ctrl'
       })
-      .state('division.division', {
+      .state('league.division', {
         url: 'division/:id',
         templateUrl: 'division/show.html',
         controller: 'DivisionsController as ctrl'
       })
-      .state('division.edit', {
+      .state('league.edit', {
         url: 'edit/:id',
         templateUrl: 'division/edit.html',
         controller: 'DivisionsController as ctrl'
