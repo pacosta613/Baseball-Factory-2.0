@@ -1,6 +1,8 @@
 function DivisionService($http, $q){
   return({
-    getDivisions: getDivisions
+    getDivisions: getDivisions,
+    addDivision: addDivision,
+    removeDivision: removeDivision
   });
 
   function getDivisions(){
@@ -12,7 +14,32 @@ function DivisionService($http, $q){
       }
     });
 
-    return (request.then(handleSuccess, handleError));
+    return request.then(handleSuccess, handleError);
+  }
+
+  function addDivision(name){
+    var request = $http({
+      method: 'post',
+      url: '/divisions.json',
+      data: {
+        name: name
+      }
+    });
+    return request.then(handleSuccess, handleError);
+  }
+
+  function removeDivision(id){
+    var request = $http({
+      method: 'delete',
+      url: "/divisions.json",
+      params: {
+        action: 'add'
+      },
+      data: {
+        id: id
+      }
+    });
+    return request.then(handleSuccess, handleError);
   }
 
   function handleSuccess(reponse){
@@ -20,7 +47,7 @@ function DivisionService($http, $q){
   }
 
   function handleError(){
-    
+
   }
 
 }

@@ -5,7 +5,8 @@ angular
     $stateProvider
       .state("league", {
         url: '/',
-        templateUrl: 'home.html'
+        templateUrl: 'home.html',
+        controller: 'DivisionsController as ctrl'
       })
       .state("league.new", {
         url: 'new',

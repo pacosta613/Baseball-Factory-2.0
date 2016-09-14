@@ -12,6 +12,14 @@ function DivisionsController(DivisionService, $scope){
   function applyDivisions(newDivision){
     $scope.divisions = newDivision;
   };
+
+  $scope.addDivision = function(){
+    DivisionService.addDivision($scope.division)
+      .then(loadDivisions, function(errorMessage){
+        console.log(errorMessage);
+      });
+    $scope.division = '';
+  }
 }
 
 angular
