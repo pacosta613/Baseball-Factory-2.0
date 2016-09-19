@@ -1,9 +1,5 @@
 function DivisionsController(DivisionService, $scope, $location, $state){
   var ctrl = this;
-  // $scope.division = {
-  //       name: ''
-  //     };
-  //$scope.divisions = divisions.data;
   loadDivisions();
 
   function loadDivisions(){
@@ -23,6 +19,14 @@ function DivisionsController(DivisionService, $scope, $location, $state){
         $location.path('divisions');
       });
   }
+
+  $scope.removeDivision = function(division){
+    DivisionService.removeDivision(division.id)
+      .then(function(result){
+        $location.path('divisions');
+      });
+  }
+
 }
 
 angular

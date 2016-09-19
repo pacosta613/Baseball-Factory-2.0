@@ -4,6 +4,7 @@
   <ul class="list_division">
     <li ng-repeat="division in divisions">
       {{division.name}}
+      <a href="#" ng-click="removeDivision(division)">Delete</a>
     </li>
   </ul>
 </div>

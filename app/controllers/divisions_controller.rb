@@ -25,7 +25,8 @@ class DivisionsController < ApplicationController
   end
 
   def destroy
-    respond_with(Division.destroy(params[:id]))
+    @division = Division.find(params[:id])
+    @division.destroy
   end
 
   private

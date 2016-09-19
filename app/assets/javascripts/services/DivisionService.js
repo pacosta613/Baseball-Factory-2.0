@@ -20,7 +20,7 @@ function DivisionService($http, $q){
   function addDivision(division){
     var request = $http({
       method: 'post',
-      url: '/divisions',
+      url: '/divisions.json',
       data: {
         division: division
       }
@@ -31,9 +31,9 @@ function DivisionService($http, $q){
   function removeDivision(id){
     var request = $http({
       method: 'delete',
-      url: "/divisions.json",
+      url: "/divisions/" + id + ".json",
       params: {
-        action: 'add'
+        action: 'delete'
       },
       data: {
         id: id
