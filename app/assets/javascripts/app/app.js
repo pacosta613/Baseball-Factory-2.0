@@ -8,6 +8,10 @@ angular
         templateUrl: 'home.html',
         controller: 'DivisionsController as ctrl'
       })
+      .state("about", {
+        url: '/about',
+        templateUrl: 'about.html'
+      })
       .state("league.new", {
         url: 'new',
         templateUrl: 'division/new.html',
@@ -29,5 +33,5 @@ angular
         controller: 'DivisionsController as ctrl'
       });
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/about");
   });

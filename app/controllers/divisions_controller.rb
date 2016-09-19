@@ -7,9 +7,7 @@ class DivisionsController < ApplicationController
   def create
     @division = Division.new(division_params)
     if @division.save
-      respond_to do |f|
-        f.json {render :json => @division}
-      end
+      render json: { division: @division }
     end
   end
 

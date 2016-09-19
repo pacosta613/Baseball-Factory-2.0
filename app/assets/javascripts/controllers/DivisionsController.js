@@ -1,5 +1,9 @@
-function DivisionsController(DivisionService, $scope){
+function DivisionsController(DivisionService, $scope, $location, $state){
   var ctrl = this;
+  // $scope.division = {
+  //       name: ''
+  //     };
+  //$scope.divisions = divisions.data;
   loadDivisions();
 
   function loadDivisions(){
@@ -15,10 +19,9 @@ function DivisionsController(DivisionService, $scope){
 
   $scope.addDivision = function(){
     DivisionService.addDivision($scope.division)
-      .then(loadDivisions, function(errorMessage){
-        console.log(errorMessage);
+      .then(function(result){
+        $location.path('divisions');
       });
-    $scope.division = '';
   }
 }
 

@@ -17,12 +17,12 @@ function DivisionService($http, $q){
     return request.then(handleSuccess, handleError);
   }
 
-  function addDivision(name){
+  function addDivision(division){
     var request = $http({
       method: 'post',
-      url: '/divisions.json',
+      url: '/divisions',
       data: {
-        name: name
+        division: division
       }
     });
     return request.then(handleSuccess, handleError);
@@ -42,8 +42,8 @@ function DivisionService($http, $q){
     return request.then(handleSuccess, handleError);
   }
 
-  function handleSuccess(reponse){
-    return reponse.data;
+  function handleSuccess(response){
+    return response.data;
   }
 
   function handleError(){
