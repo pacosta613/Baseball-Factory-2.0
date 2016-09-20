@@ -2,6 +2,14 @@ function DivisionsController(DivisionService, $scope, $location, $state){
   var ctrl = this;
   loadDivisions();
 
+  ctrl.editFlag = false;
+  ctrl.selectedId = 0;
+
+  ctrl.loadDivisions = loadDivisions;
+  ctrl.addDivision = addDivision;
+  ctrl.removeDivision = removeDivision;
+  ctrl.editDivision = editDivision
+
   function loadDivisions(){
     DivisionService.getDivisions()
       .then(function(divisions){
@@ -10,21 +18,31 @@ function DivisionsController(DivisionService, $scope, $location, $state){
   };
 
   function applyDivisions(newDivision){
-    $scope.divisions = newDivision;
+    ctrl.divisions = newDivision;
   };
 
-  $scope.addDivision = function(){
-    DivisionService.addDivision($scope.division)
-      .then(function(result){
+  function addDivision(){
+    DivisionService.addDivision(ctrl.division)
+      .then(function(){
         $location.path('divisions');
       });
   }
 
-  $scope.removeDivision = function(division){
+  function removeDivision(division){
     DivisionService.removeDivision(division.id)
-      .then(function(result){
-        $location.path('divisions');
+      .then(function(){
+         $state.go($state.current, {}, {reload: true});
       });
+  }
+
+  function editDivision(id){
+    ctrl.editFlag = true;
+    ctrl.selectedId = id;
+    // //debugger
+    // DivisionService.editDivision($scope.division)
+    //   .then(function(){
+    //     $state.go($state.current, {}, {reload: true});
+    //   })
   }
 
 }

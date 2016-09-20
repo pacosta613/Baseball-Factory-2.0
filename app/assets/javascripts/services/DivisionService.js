@@ -3,15 +3,14 @@ function DivisionService($http, $q){
     getDivisions: getDivisions,
     addDivision: addDivision,
     removeDivision: removeDivision,
-    editDivision: editDivision
+    updateDivision: updateDivision,
+    getDivision: getDivision
   });
-
-  var point = '/divisions.json';
 
   function getDivisions(){
     var request = $http({
       method: 'get',
-      url: point,
+      url: '/divisions.json',
       params: {
         action: 'get'
       }
@@ -20,10 +19,16 @@ function DivisionService($http, $q){
     return request.then(handleSuccess, handleError);
   }
 
+  function getDivision(id) {
+    return $http.get('/divisions/' + id)
+     .then(handleSuccess)
+     .catch(handleError);
+  } 
+
   function addDivision(division){
     var request = $http({
       method: 'post',
-      url: point,
+      url: '/divisions.json',
       data: {
         division: division
       }
@@ -31,12 +36,12 @@ function DivisionService($http, $q){
     return request.then(handleSuccess, handleError);
   }
 
-  function editDivision(division){
+  function updateDivision(division){
     var request = $http({
       method: 'put',
-      url: point + "/" + division.id + ".json",
+      url: '/divisions' + "/" + division.id + ".json",
       data: {
-        division: division.name
+        division: division
       }
     });
     return request.then(handleSuccess, handleError)
@@ -60,8 +65,8 @@ function DivisionService($http, $q){
     return response.data;
   }
 
-  function handleError(){
-
+  function handleError(error){
+    console.log(error)
   }
 
 }

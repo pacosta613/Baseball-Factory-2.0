@@ -1,0 +1,10 @@
+<h1> {{$ctrl.division.name}} </h1>
+
+<div class="text-center">  
+  <h1>Edit Division</h1>
+
+  <form ng-submit="$ctrl.updateDivision()">
+    <input type="text" name="name" ng-model="$ctrl.division.name">
+    <input type="submit" name="Edit Division">
+  </form>
+</div>

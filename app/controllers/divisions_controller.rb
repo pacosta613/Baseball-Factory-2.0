@@ -12,6 +12,7 @@ class DivisionsController < ApplicationController
   end
 
   def update
+    
     @division = Division.find(params[:id])
     if @division.update(division_params)
       render json: @division
@@ -19,12 +20,12 @@ class DivisionsController < ApplicationController
   end
 
   def show
-    @division = Division.find(params[:id])
+    division = Division.find(params[:id])
+    render json: division
   end
 
   def destroy
-    @division = Division.find(params[:id])
-    @division.destroy
+   Division.destroy(params[:id])
   end
 
   private

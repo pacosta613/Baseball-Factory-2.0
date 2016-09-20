@@ -2,10 +2,15 @@
 <button href="#" ui-sref="league.new">Create Division</button>
   <h2>Divisions</h2>
 
+  <div ng-if="ctrl.editFlag">
+    <edit-division-form parent-controller="ctrl" division-id="ctrl.selectedId"></edit-division-form>
+  </div>
+
   <ul class="list_division">
-    <li ng-repeat="division in divisions">
+    <li ng-repeat="division in ctrl.divisions">
       {{division.name}}
-      <a href="#" ng-click="removeDivision(division)">Delete</a>
+      <button ng-click="ctrl.editDivision(division.id)">Edit</button>
+      <button href="#" ng-click="ctrl.removeDivision(division)">Delete</button>
     </li>
   </ul>
 
