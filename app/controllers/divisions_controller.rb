@@ -14,9 +14,7 @@ class DivisionsController < ApplicationController
   def update
     @division = Division.find(params[:id])
     if @division.update(division_params)
-      respond_to do |f|
-        f.json {render :json => @division}
-      end
+      render json: @division
     end
   end
 

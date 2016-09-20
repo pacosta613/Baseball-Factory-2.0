@@ -2,13 +2,16 @@ function DivisionService($http, $q){
   return({
     getDivisions: getDivisions,
     addDivision: addDivision,
-    removeDivision: removeDivision
+    removeDivision: removeDivision,
+    editDivision: editDivision
   });
+
+  var point = '/divisions.json';
 
   function getDivisions(){
     var request = $http({
       method: 'get',
-      url: '/divisions.json',
+      url: point,
       params: {
         action: 'get'
       }
@@ -20,12 +23,23 @@ function DivisionService($http, $q){
   function addDivision(division){
     var request = $http({
       method: 'post',
-      url: '/divisions.json',
+      url: point,
       data: {
         division: division
       }
     });
     return request.then(handleSuccess, handleError);
+  }
+
+  function editDivision(division){
+    var request = $http({
+      method: 'put',
+      url: point + "/" + division.id + ".json",
+      data: {
+        division: division.name
+      }
+    });
+    return request.then(handleSuccess, handleError)
   }
 
   function removeDivision(id){
