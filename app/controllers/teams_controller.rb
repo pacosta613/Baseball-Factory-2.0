@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :find_division
 
   def index
-    @teams = @division.teams.all
+    @teams = Team.all
     render json: @teams
   end
 
@@ -17,20 +17,20 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = @division.teams.find(params[:id])   
+    @team = Team.find(params[:id])   
     @team.players
     render json: @team
   end
 
   def update
-    @team = @division.teams.find(params[:id])
+    @team = Team.find(params[:id])   
     if @team.update(team_params)
       render json: @team 
     end
   end
 
   def destroy
-    @team = @division.teams.find(params[:id])
+    @team = Team.find(params[:id])   
     @team.destroy
     render json: @team
   end

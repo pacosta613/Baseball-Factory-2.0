@@ -5,12 +5,12 @@
   <button href="#" ng-click="ctrl.removeDivision(division)">Delete</button> 
 
   <h2>Teams</h2>
-  <ul class="list">
-    <li ng-repeat="team in ctrl.division.teams">
-      <a href="#" ui-sref="league.team({id: team.id})">{{team.name}}</a>
+  <ul>
+    <li ng-repeat="team in division.teams">
+    {{team.name}}
+      <a href="#" ui-sref="league.team({id: team.id})"></a>
     </li>
   </ul>
-
   <h1>Create Team</h1>
 
   <form ng-submit="ctrl.addTeam(ctrl.team, ctrl.division)" name="form">

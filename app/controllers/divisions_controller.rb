@@ -19,8 +19,9 @@ class DivisionsController < ApplicationController
   end
 
   def show
-    division = Division.find(params[:id])
-    render json: division
+    @division = Division.find(params[:id])
+    @division.teams
+    render json: @division
   end
 
   def destroy
