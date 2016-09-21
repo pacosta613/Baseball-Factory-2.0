@@ -16,5 +16,8 @@
 .list_team li{
   display: block;
   list-style-position: center;
-  margin: 0px 5px;
+}
+.list_team {
+  display: inline;
+  list-style-position: center;
 }

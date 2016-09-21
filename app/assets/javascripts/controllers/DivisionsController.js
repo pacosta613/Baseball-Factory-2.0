@@ -53,7 +53,7 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
 angular
   .module('app')
   .controller('DivisionsController', DivisionsController)
-  .controller('DivisionController', function DivisionController(division, DivisionService){
+  .controller('DivisionController', function DivisionController(division){
     var ctrl = this;
     ctrl.division = division;
 

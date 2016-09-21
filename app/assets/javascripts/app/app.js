@@ -28,7 +28,7 @@ angular
         controller: 'DivisionController as ctrl',
         resolve: {
           division: function(DivisionService, $stateParams){
-            return DivisionService.getDivision($stateParams.id);
+            return DivisionService.getDivision($stateParams.id)
           }
         }
       })
