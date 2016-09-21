@@ -1,24 +1,14 @@
-# README
+Baseball_Factory
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created to allow baseball leagues to enter their divisions, along with teams and players. As of right now, its purpose is to create a full roster for each team. 
 
-Things you may want to cover:
+To run this app:
 
-* Ruby version
+1. $ bundle install
 
-* System dependencies
+2. $ rake db:migrate db:seed
 
-* Configuration
 
-* Database creation
+FYI - Later I will expand on this project adding features like allowing certain admins to put in the statistical outcome of each game and players. A chart comparing statistics of players and teams such as mlb.com website and schedules. If you have any suggestions for the app, feel free to email me at pedro.acosta613@gmail.com and I'll be sure to take your recommendation into consideration.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thanks! I hope you enjoy what I've built thus far. 
