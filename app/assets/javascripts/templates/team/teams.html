@@ -1,0 +1,13 @@
+<div class="text-center">  
+  <h2>Teams</h2>
+
+  <input ng-model="search.name" placeholder="Team Name" />
+
+  <ul>
+    <li ng-repeat="team in ctrl.teams | filter:search">
+      <a href="#" ui-sref="league.team({id: team.id})"><h4> {{team.name}} </h4></a>
+      <button ng-click="ctrl.editTeam(team.id)">Edit</button>
+      <button href="#" ng-click="ctrl.removeTeam(team)">Delete</button>
+    </li>
+  </ul>
+</div>

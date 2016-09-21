@@ -55,6 +55,5 @@ angular
   .controller('DivisionsController', DivisionsController)
   .controller('DivisionController', function DivisionController(division){
     var ctrl = this;
-    console.log(division)
     ctrl.division = division;
   });
