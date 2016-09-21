@@ -12,7 +12,6 @@ class DivisionsController < ApplicationController
   end
 
   def update
-    
     @division = Division.find(params[:id])
     if @division.update(division_params)
       render json: @division

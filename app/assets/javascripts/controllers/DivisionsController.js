@@ -1,5 +1,6 @@
-function DivisionsController(DivisionService, $scope, $location, $state){
+function DivisionsController(DivisionService, $scope, $location, $state, $stateParams){
   var ctrl = this;
+
   loadDivisions();
 
   ctrl.editFlag = false;
@@ -8,7 +9,9 @@ function DivisionsController(DivisionService, $scope, $location, $state){
   ctrl.loadDivisions = loadDivisions;
   ctrl.addDivision = addDivision;
   ctrl.removeDivision = removeDivision;
-  ctrl.editDivision = editDivision
+  ctrl.editDivision = editDivision;
+  
+  
 
   function loadDivisions(){
     DivisionService.getDivisions()
@@ -49,4 +52,9 @@ function DivisionsController(DivisionService, $scope, $location, $state){
 
 angular
   .module('app')
-  .controller('DivisionsController', DivisionsController);
+  .controller('DivisionsController', DivisionsController)
+  .controller('DivisionController', function DivisionController(division){
+    var ctrl = this;
+    console.log(division)
+    ctrl.division = division;
+  });

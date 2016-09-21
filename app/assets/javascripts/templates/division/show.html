@@ -1,7 +1,8 @@
 <div class="text-center">
-  <h3>{{ ctrl.division.name }}</h3>
+  <h3>{{ ctrl.division.name }} {{ctrl.message}} </h3>
 
-  <a class="division-active" href="#" ng-click="ctrl.deleteDivision(ctrl.division)">Delete Division</a> 
+
+  <!-- <button href="#" ng-click="ctrl.removeDivision(division)">Delete</button> 
 
   <h2>Teams</h2>
   <ul class="list">
@@ -12,14 +13,9 @@
 
   <h1>Create Team</h1>
 
-  <form validate ng-submit="ctrl.addTeam(ctrl.team, ctrl.division)" name="form">
+  <form ng-submit="ctrl.addTeam(ctrl.team, ctrl.division)" name="form">
      <label>Team</label>
      <input type="text" ng-model="ctrl.team.name" required="required" name="team">
-
-     <div ng-messages="form.team.$error" ng-if="form.team.$touched">
-       <div ng-message="required">Team name is required</div>
-     </div>
-
      <input type="submit" value="Add Team">
-  </form>
+  </form> -->
 </div>
