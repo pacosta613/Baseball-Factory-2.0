@@ -10,8 +10,7 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
   ctrl.addDivision = addDivision;
   ctrl.removeDivision = removeDivision;
   ctrl.editDivision = editDivision;
-  
-  
+  ctrl.addTeam = addTeam;
 
   function loadDivisions(){
     DivisionService.getDivisions()
@@ -47,14 +46,28 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
     //     $state.go($state.current, {}, {reload: true});
     //   })
   }
+  
+  function addTeam(){
+
+  }
+
+
 
 }
 
 angular
   .module('app')
   .controller('DivisionsController', DivisionsController)
-  .controller('DivisionController', function DivisionController(division){
+  .controller('DivisionController', function DivisionController(division, DivisionService, $state){
     var ctrl = this;
     ctrl.division = division;
+    ctrl.removeDivision = removeDivision;
+
+    function removeDivision(){
+      DivisionService.removeDivision(ctrl.division.id)
+        .then(function(){
+           $state.go("league.divisions", {}, {reload: true});
+        });
+    }
 
   });
