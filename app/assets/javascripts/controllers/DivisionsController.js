@@ -51,7 +51,7 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
 angular
   .module('app')
   .controller('DivisionsController', DivisionsController)
-  .controller('DivisionController', function DivisionController(division, DivisionService, $state){
+  .controller('DivisionController', function DivisionController(division, DivisionService, $state, TeamService){
     var ctrl = this;
     ctrl.division = division;
     ctrl.removeDivision = removeDivision;
@@ -65,7 +65,10 @@ angular
     }
 
     function addTeam(){
-      
+      TeamService.addTeam()
+        .then(function(){
+          $state.go($state.current, {}, {reload: true});
+        });
     }
 
   });

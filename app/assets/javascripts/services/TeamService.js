@@ -20,12 +20,13 @@ function TeamService($http, $q) {
       .catch(handleError);
   }
 
-  function addTeam(team){
+  function addTeam(team, division){
     var request = $http({
       method: 'post',
       url: '/teams.json',
       data: {
-        team: team
+        team: team,
+        division: division
       }
     });
     return request.then(handleSuccess, handleError)

@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])   
+    @team = Team.find(params[:id])  
     @team.players
     render json: @team
   end
@@ -38,7 +38,7 @@ class TeamsController < ApplicationController
   private
 
     def team_params
-      params.require(:taem).permit(:division_id, :name)
+      params.require(:team).permit(:division_id, :name)
     end
 
     def find_division
