@@ -27,7 +27,7 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
   function addDivision(){
     DivisionService.addDivision(ctrl.division)
       .then(function(){
-        $location.path('divisions');
+        $state.go("league.divisions", {}, {reload: true});
       });
   }
 

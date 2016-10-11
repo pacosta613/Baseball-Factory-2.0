@@ -8,15 +8,9 @@ function DivisionService($http, $q){
   });
 
   function getDivisions(){
-    var request = $http({
-      method: 'get',
-      url: '/divisions.json',
-      params: {
-        action: 'get'
-      }
-    });
-
-    return request.then(handleSuccess, handleError);
+    return $http.get("/divisions.json")
+      .then(handleSuccess)
+      .catch(handleError);
   }
 
   function getDivision(id) {
