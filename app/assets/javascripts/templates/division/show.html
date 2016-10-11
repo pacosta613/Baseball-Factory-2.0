@@ -10,11 +10,10 @@
       <a href="#" ui-sref="league.team({id: team.id})">{{team.name}}</a>
     </li>
   </ul>
-  <h1>Create Team</h1>
+  <h1>Create A Team</h1>
 
-  <form ng-submit="ctrl.addTeam(ctrl.team, ctrl.division)" name="form">
-     <label>Team</label>
-     <input type="text" ng-model="ctrl.team.name" required="required" name="name">
-     <input type="submit" value="Add Team">
+  <form ng-submit="ctrl.addTeam()">
+    <input type="text" name="name" ng-model="ctrl.team.name">
+    <input type="submit" name="Create Team">
   </form>
 </div>

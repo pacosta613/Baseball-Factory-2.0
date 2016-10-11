@@ -1,10 +1,11 @@
 function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   var ctrl = this;
-  loadTeams();
   ctrl.loadTeams = loadTeams;
   ctrl.addTeam = addTeam;
   ctrl.removeTeam = removeTeam;
   ctrl.editTeam = editTeam;
+
+  loadTeams();
 
   function loadTeams(){
     TeamService.getTeams()
