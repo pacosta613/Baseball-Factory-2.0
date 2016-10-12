@@ -53,6 +53,7 @@ angular
   .controller('DivisionsController', DivisionsController)
   .controller('DivisionController', function DivisionController(division, DivisionService, $state, TeamService){
     var ctrl = this;
+    //ctrl.team = team;
     ctrl.division = division;
     ctrl.removeDivision = removeDivision;
     ctrl.addTeam = addTeam;
@@ -65,8 +66,9 @@ angular
     }
 
     function addTeam(){
-      TeamService.addTeam()
-        .then(function(){
+      ctrl.team.division_id = division.id;
+      TeamService.addTeam(ctrl.team)
+        .then(function(team){
           $state.go($state.current, {}, {reload: true});
         });
     }

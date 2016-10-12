@@ -25,7 +25,7 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
       });
   };
 
-  function removeTeam(){
+  function removeTeam(team){
     TeamService.removeTeam(team.id)
       .then(function(){
         $state.go($state.current, {}, {reload: true});
