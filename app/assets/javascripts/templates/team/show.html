@@ -6,7 +6,7 @@
   <h2>Players</h2>
   <ul class="list_player">
     <li ng-repeat="player in ctrl.team.players">
-      {{player.name}}
+      <a href="#" ui-sref="league.player({id: player.id})">{{player.first_name}} {{player.last_name}}</a>
     </li>
   </ul>
 </div>

@@ -21,3 +21,12 @@
   display: inline;
   list-style-position: center;
 }
+
+.list_player li{
+  display: block;
+  list-style-position: center;
+}
+.list_player {
+  display: inline;
+  list-style-position: center;
+}
