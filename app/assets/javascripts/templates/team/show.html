@@ -1,0 +1,12 @@
+<div class="text-center">
+  <h3>{{ctrl.team.name}}</h3>
+
+  <button href="#" ng-click="ctrl.removeCurrentTeam()">Delete</button>
+
+  <h2>Players</h2>
+  <ul class="list_player">
+    <li ng-repeat="player in ctrl.team.players">
+      {{player.name}}
+    </li>
+  </ul>
+</div>
