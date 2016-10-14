@@ -34,14 +34,7 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   function applyTeams(newTeam){
     ctrl.teams = newTeam;
   };
-
-  function addTeam(){
-    TeamService.addTeam(ctrl.team)
-      .then(function(){
-        $location.path('teams');
-      });
-  };
-
+  
   function removeTeam(team){
     TeamService.removeTeam(team.id)
       .then(function(){

@@ -37,11 +37,6 @@ angular
         templateUrl: 'team/teams.html',
         controller: 'TeamsController as ctrl'
       })
-      .state('league.new-team', {
-        url: 'new-team',
-        templateUrl: 'team/new.html',
-        controller: 'TeamsController as ctrl'
-       })
      .state('league.edit-team', {
         url: 'edit-team/:id',
         templateUrl: 'team/edit.html',
