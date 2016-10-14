@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = @teamm.players.create(player_params)
+    @player = @team.players.create(player_params)
     if @player.save
 
       render json: @player

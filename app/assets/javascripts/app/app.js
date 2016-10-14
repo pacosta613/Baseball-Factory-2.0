@@ -43,7 +43,7 @@ angular
         controller: 'TeamsController as ctrl'
        })
      .state('league.team', {
-        url: 'teams/:id',
+        url: 'teams/:id/players',
         templateUrl: 'team/show.html',
         controller: 'TeamsController as ctrl'
        })
@@ -55,11 +55,6 @@ angular
      .state('league.player', {
         url: 'player/:id',
         templateUrl: 'player/show.html',
-        controller: 'PlayersController as ctrl'
-       })
-     .state('league.new-player', {
-        url: 'new-player',
-        templateUrl: 'player/new.html',
         controller: 'PlayersController as ctrl'
        })
      .state('league.edit-player', {
