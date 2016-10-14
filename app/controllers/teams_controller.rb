@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_division
+  before_action :find_division, except: [:index]
 
   def index
     @teams = Team.all
