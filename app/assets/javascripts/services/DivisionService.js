@@ -4,7 +4,8 @@ function DivisionService($http, $q){
     addDivision: addDivision,
     removeDivision: removeDivision,
     updateDivision: updateDivision,
-    getDivision: getDivision
+    getDivision: getDivision,
+    addTeam: addTeam
   });
 
   function getDivisions(){
@@ -28,6 +29,18 @@ function DivisionService($http, $q){
       }
     });
     return request.then(handleSuccess, handleError);
+  }
+
+  function addTeam(team){
+    var request = $http({
+      method: 'post',
+      url: '/divisions/' + team.division_id + '.json',
+      data: {
+        team: team
+      }
+    });
+
+    return request.then(handleSuccess, handleError)
   }
 
   function updateDivision(division){

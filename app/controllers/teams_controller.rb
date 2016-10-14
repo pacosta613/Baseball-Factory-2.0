@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
   def create
     @team = @division.teams.create(team_params)
     if @team.save
+
       render json: @team 
     else
       errors = @team.errors.full_messages
@@ -42,7 +43,7 @@ class TeamsController < ApplicationController
     end
 
     def find_division
-      @division = Division.find_by(params[:division_id])
+      @division = Division.find(params[:division_id])
     end
 
 end

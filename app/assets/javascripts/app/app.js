@@ -25,12 +25,7 @@ angular
       .state('league.division', {
         url: 'divisions/:id',
         templateUrl: 'division/show.html',
-        controller: 'DivisionController as ctrl',
-        resolve: {
-          division: function(DivisionService, $stateParams){
-            return DivisionService.getDivision($stateParams.id)
-          }
-        }
+        controller: 'DivisionsController as ctrl'
       })
       .state('league.edit', {
         url: 'edit/:id',
