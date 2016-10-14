@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_division, except: [:index]
+  before_action :find_division, except: [:index, :destroy, :show]
 
   def index
     @teams = Team.all
@@ -7,9 +7,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    binding.pry
     @team = @division.teams.create(team_params)
-    binding.pry
     if @team.save
 
       render json: @team 

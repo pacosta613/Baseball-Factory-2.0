@@ -5,7 +5,24 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   ctrl.removeTeam = removeTeam;
   ctrl.editTeam = editTeam;
 
-  loadTeams();
+  activate();
+
+  function activate(){
+    if (!$stateParams.id){
+      loadTeams();
+    } else if ($stateParams.id){
+      getTeam();
+    }
+  }
+
+  function getTeam(){
+    return TeamService.getTeam($stateParams.id)
+      .then(setTeam);
+
+      function setTeam(data){ 
+        return ctrl.team = data
+      }
+  }
 
   function loadTeams(){
     TeamService.getTeams()

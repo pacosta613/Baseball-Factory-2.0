@@ -75,7 +75,6 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
     ctrl.team.division_id = ctrl.division.id;
     DivisionService.addTeam(ctrl.team)
       .then(function(team){
-        debugger
         $state.go($state.current, {}, {reload: true});
       });
   }
