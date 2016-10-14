@@ -7,7 +7,9 @@ class TeamsController < ApplicationController
   end
 
   def create
+    binding.pry
     @team = @division.teams.create(team_params)
+    binding.pry
     if @team.save
 
       render json: @team 

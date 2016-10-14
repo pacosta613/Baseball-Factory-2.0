@@ -23,7 +23,7 @@ angular
         controller: 'DivisionsController as ctrl'
       })
       .state('league.division', {
-        url: 'divisions/:id',
+        url: 'divisions/:id/teams',
         templateUrl: 'division/show.html',
         controller: 'DivisionsController as ctrl'
       })
