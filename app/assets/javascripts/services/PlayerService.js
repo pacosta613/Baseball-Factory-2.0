@@ -9,7 +9,9 @@ function PlayerService($http){
   });
 
   function getPlayers(){
-
+    return $http.get('/players.json')
+      .then(handleSuccess)
+      .catch(handleError);
   }
 
   function getPlayer(){}
@@ -19,6 +21,14 @@ function PlayerService($http){
   function removePlayer(){}
 
   function updatePlayer(){}
+
+  function handleSuccess(response){
+    return response.data;
+  }
+
+  function handleError(error){
+    console.log(error);
+  }
 
 }
 
