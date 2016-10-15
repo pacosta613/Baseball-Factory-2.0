@@ -15,7 +15,7 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   }
 
   function getTeam(){
-    return TeamService.getTeam($stateParams.id)
+    TeamService.getTeam($stateParams.id)
       .then(setTeam);
 
       function setTeam(data){ 

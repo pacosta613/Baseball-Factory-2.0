@@ -14,7 +14,11 @@ function PlayerService($http){
       .catch(handleError);
   }
 
-  function getPlayer(){}
+  function getPlayer(id){
+    return $http.get('/players/' + id + '.json')
+      .then(handleSuccess)
+      .catch(handleError);
+  }
 
   function addPlayer(){}
 
