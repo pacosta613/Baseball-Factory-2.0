@@ -1,7 +1,17 @@
 function PlayersController(PlayerService, $stateParams){
   var ctrl = this;
-  ctrl.players = loadPlayers();
-  ctrl.player = getPlayer();
+  ctrl.removePlayer = removePlayer;
+  ctrl.removeCurrentPlayer = removeCurrentPlayer;
+
+  activate();
+
+  function activate(){
+    if (!$stateParams.id){
+      loadPlayers();
+    } else if ($stateParams.id) {
+      getPlayer();
+    }
+  }
 
   function loadPlayers(){
     PlayerService.getPlayers()
@@ -18,6 +28,10 @@ function PlayersController(PlayerService, $stateParams){
       return ctrl.player = data
     }
   }
+
+  function removePlayer(){}
+
+  function removeCurrentPlayer(){}
 
 }
 
