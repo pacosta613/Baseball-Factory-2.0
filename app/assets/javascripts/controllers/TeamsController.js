@@ -1,6 +1,5 @@
 function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   var ctrl = this;
-  ctrl.loadTeams = loadTeams;
   ctrl.removeTeam = removeTeam;
   ctrl.editTeam = editTeam;
   ctrl.removeCurrentTeam = removeCurrentTeam;
@@ -27,12 +26,8 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   function loadTeams(){
     TeamService.getTeams()
       .then(function(teams){
-        applyTeams(teams);
+        ctrl.teams = teams;
       });
-  };
-
-  function applyTeams(newTeam){
-    ctrl.teams = newTeam;
   };
 
   function removeTeam(team){
