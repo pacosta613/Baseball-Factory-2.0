@@ -7,8 +7,8 @@
   </div>
 
   <ul class="list_division">
-    <li ng-repeat="division in ctrl.divisions">
-      {{division.name}}
+    <li ng-repeat="division in ctrl.divisions | orderBy: '$index' ">
+      {{$index + 1}}:  {{division.name}}
       <button ng-click="ctrl.editDivision(division.id)">Edit</button>
       <button href="#" ng-click="ctrl.removeDivision(division)">Delete</button>
     </li>

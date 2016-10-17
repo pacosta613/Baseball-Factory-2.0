@@ -25,7 +25,7 @@ function PlayersController(PlayerService, $stateParams){
     .then(setPlayer)
 
     function setPlayer(data){
-      return ctrl.player = data
+      ctrl.player = data
     }
   }
 

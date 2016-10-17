@@ -34,7 +34,7 @@ function DivisionService($http, $q){
   function addTeam(team){
     var request = $http({
       method: 'post',
-      url: '/divisions/' + team.division_id + '/teams'+ '.json',
+      url: '/divisions/' + team.division_id + '/teams.json',
       data: {
         team: team
       }

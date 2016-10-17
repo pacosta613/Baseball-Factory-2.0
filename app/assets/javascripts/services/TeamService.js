@@ -2,10 +2,11 @@ function TeamService($http) {
 
   return({
     getTeams: getTeams,
-    addTeam: addTeam,
+    // addTeam: addTeam,
     removeTeam: removeTeam,
     updateTeam: updateTeam,
-    getTeam: getTeam
+    getTeam: getTeam,
+    addPlayers: addPlayers
   });
 
   function getTeam(id){
@@ -20,16 +21,16 @@ function TeamService($http) {
       .catch(handleError);
   }
 
-  function addTeam(team){
-    var request = $http({
-      method: 'post',
-      url: '/teams.json',
-      data: {
-        team: team
-      }
-    });
-    return request.then(handleSuccess, handleError)
-  }
+  // function addTeam(team){
+  //   var request = $http({
+  //     method: 'post',
+  //     url: '/teams.json',
+  //     data: {
+  //       team: team
+  //     }
+  //   });
+  //   return request.then(handleSuccess, handleError)
+  // }
 
   function updateTeam(team){
     var request = $http({
@@ -51,6 +52,17 @@ function TeamService($http) {
       },
       data: {
         id: id
+      }
+    });
+    return request.then(handleSuccess, handleError)
+  }
+
+  function addPlayers(player){
+    var request = $http({
+      method: 'POST',
+      url: "/teams/" + player.team_id + "/players.json",
+      data: {
+        player: player
       }
     });
     return request.then(handleSuccess, handleError)

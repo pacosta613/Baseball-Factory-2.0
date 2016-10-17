@@ -1,9 +1,9 @@
 <div class="text-center">
     
     <ul class="list_player">
-      <li ng-repeat="player in ctrl.players">
-        <a href="#" ui-sref="league.player({id: player.id})">
-          <h4>{{player.first_name}} {{player.last_name}} - {{player.position}}</h4>
+      <li ng-repeat="player in ctrl.players | orderBy: '$index' ">
+        {{$index + 1}}: <a href="#" ui-sref="league.player({id: player.id})">
+           {{player.first_name}} {{player.last_name}} - {{player.position}}
         </a>        
       </li>
     </ul>
