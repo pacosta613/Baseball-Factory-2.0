@@ -1,9 +1,8 @@
-function DivisionsController(DivisionService, $scope, $location, $state, $stateParams){
+function DivisionsController(DivisionService, $scope, $state, $stateParams){
   var ctrl = this;
 
   ctrl.editFlag = false;
   ctrl.selectedId = 0;
-  ctrl.loadDivisions = loadDivisions;
   ctrl.addDivision = addDivision;
   ctrl.removeDivision = removeDivision;
   ctrl.editDivision = editDivision;
@@ -25,18 +24,18 @@ function DivisionsController(DivisionService, $scope, $location, $state, $stateP
       .then(function(divisions){
         applyDivisions(divisions);
       })
-  }
 
-  function applyDivisions(newDivision){
-    ctrl.divisions = newDivision;
+      function applyDivisions(newDivision){
+      ctrl.divisions = newDivision;
+    }
   }
 
   function getDivision(){
-    return DivisionService.getDivision($stateParams.id)
+    DivisionService.getDivision($stateParams.id)
       .then(setDivision);
 
       function setDivision(data) {
-        return ctrl.division = data;
+        ctrl.division = data;
       }
   }
 

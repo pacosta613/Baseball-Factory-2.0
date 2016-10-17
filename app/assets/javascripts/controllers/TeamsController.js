@@ -19,7 +19,7 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
       .then(setTeam);
 
       function setTeam(data){ 
-        return ctrl.team = data
+        ctrl.team = data
       }
   }
 

@@ -1,4 +1,4 @@
-function TeamService($http, $q) {
+function TeamService($http) {
 
   return({
     getTeams: getTeams,

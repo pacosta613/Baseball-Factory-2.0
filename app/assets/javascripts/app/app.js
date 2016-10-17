@@ -53,7 +53,7 @@ angular
         controller: 'PlayersController as ctrl'
        })
      .state('league.player', {
-        url: 'player/:id',
+        url: 'players/:id',
         templateUrl: 'player/show.html',
         controller: 'PlayersController as ctrl'
        })
