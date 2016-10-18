@@ -1,6 +1,6 @@
 function PlayersController(PlayerService, $stateParams, $state){
   var ctrl = this;
-  ctrl.editFlat = false;
+  ctrl.editFlag = false;
   ctrl.selectedId = 0;
   ctrl.loadPlayers = loadPlayers;
   ctrl.editPlayer = editPlayer;
@@ -47,8 +47,9 @@ function PlayersController(PlayerService, $stateParams, $state){
       })
   }
 
-  function editPlayer(){
-
+  function editPlayer(id){
+    ctrl.editFlag = true;
+    ctrl.selectedId = id;
   }
 
 }

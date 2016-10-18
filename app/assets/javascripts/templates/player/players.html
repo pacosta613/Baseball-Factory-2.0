@@ -1,10 +1,12 @@
 <div class="text-center">
-    
+
+  <input ng-model="search.last_name" placeholder="Search Last Name"><br>    
     <ul class="list_player">
-      <li ng-repeat="player in ctrl.players | orderBy: '$index' ">
+      <li ng-repeat="player in ctrl.players | orderBy: '$index' | filter:search ">
         {{$index + 1}}: <a href="#" ui-sref="league.player({id: player.id})">
            {{player.first_name}} {{player.last_name}} - {{player.position}}
         </a>
+        <button ng-click="ctrl.editPlayer(player.id)">Edit</button>
         <button href="#" ng-click="ctrl.removePlayer(player)">Delete</button>        
       </li>
     </ul>
