@@ -34,9 +34,9 @@
 
     function updateTeam(){
       TeamService.updateTeam(ctrl.team)
-        .then(removeEditFlat)
+        .then(removeEditFlag)
 
-        function removeEditFlat(){
+        function removeEditFlag(){
           ctrl.parentController.editFlag = false;
           ctrl.parentController.selectedId = 0;
           ctrl.parentController.loadTeams();

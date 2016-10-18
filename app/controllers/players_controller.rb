@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :find_team, only: [:create]
-  before_action :find_player, only: [:show, :destroy, :update]
+  before_action :find_player, only: [ :destroy, :update]
 
   def index
     @players = Player.all 
@@ -19,6 +19,7 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @player = Player.find(params[:id])
     render json: @player
   end
 
@@ -45,6 +46,6 @@ class PlayersController < ApplicationController
   end
 
   def find_player
-    @player = Player.find(params[:id])
+    @player = Player.find(params[:id])   
   end
 end
