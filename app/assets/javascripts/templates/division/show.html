@@ -12,8 +12,11 @@
   </ul>
   <h1>Create A Team</h1>
 
-  <form ng-submit="ctrl.addTeam()">
-    <input type="text" name="name" ng-model="ctrl.team.name">
+  <form ng-submit="ctrl.addTeam()" name="form">
+    <input type="text" name="team" ng-model="ctrl.team.name" required="required">
+    <div ng-messages="form.team.$error" ng-if="form.team.$touched">
+      <div ng-message="required">Team name is required</div>
+    </div>
     <input type="submit" name="Create Team">
   </form>
 </div>

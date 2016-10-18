@@ -1,7 +1,24 @@
-<form ng-submit="$ctrl.addPlayer()">
-  <input type="text" placeholder="First Name" name="first_name" ng-model="$ctrl.player.first_name"><br>
-  <input type="text" placeholder="Last Name" name="last_name" ng-model="$ctrl.player.last_name"><br>
-  <input type="text" placeholder="Position" name="position" ng-model="$ctrl.player.position"><br>
-  <input type="text" placeholder="Jersey Number" name="jersey_number" ng-model="$ctrl.player.jersey_number"><br>
+<form ng-submit="$ctrl.addPlayer()" name="form">
+
+  <input type="text" placeholder="First Name" name="first_name" ng-model="$ctrl.player.first_name" required="required">
+  <div ng-messages="form.first_name.$error" ng-if="form.first_name.$touched">
+    <div ng-message="required">First Name is required</div>
+  </div><br>
+
+  <input type="text" placeholder="Last Name" name="last_name" ng-model="$ctrl.player.last_name" required="required">
+  <div ng-messages="form.last_name.$error" ng-if="form.last_name.$touched">
+    <div ng-messages="required">Last Name is required</div>
+  </div><br>
+
+  <input type="text" placeholder="Position" name="position" ng-model="$ctrl.player.position" required="required">
+  <div ng-messages="form.position.$error" ng-if="form.position.$touched">
+    <div ng-message="required">Position is required</div>
+  </div><br>
+
+  <input type="text" placeholder="Jersey Number" name="jersey_number" ng-model="$ctrl.player.jersey_number" required="required">
+  <div ng-messages="form.jersey_number.$error" ng-if="form.jersey_number.$touched">
+    <div ng-message="required">Jersey Number is required</div>
+  </div><br>
+  
   <input type="submit" name="Add Player">
 </form>
