@@ -9,7 +9,7 @@
 
   <ul class="list_team">
     <li ng-repeat="team in ctrl.teams | filter:search | orderBy: '$index' "><br>
-       {{$index + 1}}: <a href="#" ui-sref="league.team({id: team.id})">{{team.name}} </a>
+       {{$index + 1}}: <a href="#" ui-sref="league.team({id: team.id})">{{team.name | upperFirstLetter}} </a>
       <button ng-click="ctrl.editTeam(team.id)">Edit</button>
       <button href="#" ng-click="ctrl.removeTeam(team)">Delete</button>
     </li>
