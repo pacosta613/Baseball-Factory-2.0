@@ -27,21 +27,11 @@ angular
         templateUrl: 'division/show.html',
         controller: 'DivisionsController as ctrl'
       })
-      .state('league.edit', {
-        url: 'edit/:id',
-        templateUrl: 'division/edit.html',
-        controller: 'DivisionsController as ctrl'
-      })
       .state('league.teams', {
         url: "teams",
         templateUrl: 'team/teams.html',
         controller: 'TeamsController as ctrl'
       })
-     .state('league.edit-team', {
-        url: 'edit-team/:id',
-        templateUrl: 'team/edit.html',
-        controller: 'TeamsController as ctrl'
-       })
      .state('league.team', {
         url: 'teams/:id/players',
         templateUrl: 'team/show.html',
@@ -57,10 +47,5 @@ angular
         templateUrl: 'player/show.html',
         controller: 'PlayersController as ctrl'
        })
-     .state('league.edit-player', {
-        url: 'edit-player/:id',
-        templateUrl: 'player/edit.html',
-        controller: 'PlayersController as ctrl'
-       });
     $urlRouterProvider.otherwise("/about");
   });

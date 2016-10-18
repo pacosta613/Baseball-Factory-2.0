@@ -1,5 +1,9 @@
-function PlayersController(PlayerService, $stateParams){
+function PlayersController(PlayerService, $stateParams, $state){
   var ctrl = this;
+  ctrl.editFlat = false;
+  ctrl.selectedId = 0;
+  ctrl.loadPlayers = loadPlayers;
+  ctrl.editPlayer = editPlayer;
   ctrl.removePlayer = removePlayer;
   ctrl.removeCurrentPlayer = removeCurrentPlayer;
 
@@ -29,9 +33,23 @@ function PlayersController(PlayerService, $stateParams){
     }
   }
 
-  function removePlayer(){}
+  function removePlayer(player){
+    PlayerService.removePlayer(player.id)
+      .then(function(){
+        $state.go($state.current, {}, {reload: true});
+      })
+  }
 
-  function removeCurrentPlayer(){}
+  function removeCurrentPlayer(){
+    PlayerService.removePlayer(ctrl.player.id)
+      .then(function(){
+        $state.go('league.players', {}, {reload: true});
+      })
+  }
+
+  function editPlayer(){
+
+  }
 
 }
 

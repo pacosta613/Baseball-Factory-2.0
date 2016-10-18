@@ -3,7 +3,6 @@ function PlayerService($http){
   return ({
     getPlayers: getPlayers,
     getPlayer: getPlayer,
-    addPlayer: addPlayer,
     removePlayer: removePlayer,
     updatePlayer: updatePlayer
   });
@@ -20,9 +19,20 @@ function PlayerService($http){
       .catch(handleError);
   }
 
-  function addPlayer(){}
-
-  function removePlayer(){}
+  function removePlayer(id){
+    var request = $http({
+      method: 'delete',
+      url: '/players/' + id + '.json',
+      params: {
+        action: 'delete'
+      },
+      data: {
+        id: id
+      }
+    });
+    return request.then(handleSuccess, handleError);
+    console.log(handleError);
+  }
 
   function updatePlayer(){}
 
