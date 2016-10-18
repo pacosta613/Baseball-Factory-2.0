@@ -9,15 +9,22 @@
   };
 
 
-  function AddPlayerFormController(TeamService, $state){
+  function AddPlayerFormController(TeamService, $state, $stateParams){
     var ctrl = this;
 
     ctrl.addPlayer = addPlayer;
+    getTeam();
+    function getTeam(){
+      TeamService.getTeam($stateParams.id)
+        .then(setTeam);
+
+        function setTeam(data){ 
+          ctrl.team = data
+        }
+    }
 
     function addPlayer(){
-      debugger
       ctrl.player.team_id = ctrl.team.id
-      debugger
       TeamService.addPlayers(ctrl.player)
         .then(function(){
           $state.go($state.current, {}, {reload: true});
