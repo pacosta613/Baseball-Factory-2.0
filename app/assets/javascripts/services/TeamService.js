@@ -2,7 +2,6 @@ function TeamService($http) {
 
   return({
     getTeams: getTeams,
-    // addTeam: addTeam,
     removeTeam: removeTeam,
     updateTeam: updateTeam,
     getTeam: getTeam,
@@ -20,17 +19,6 @@ function TeamService($http) {
       .then(handleSuccess)
       .catch(handleError);
   }
-
-  // function addTeam(team){
-  //   var request = $http({
-  //     method: 'post',
-  //     url: '/teams.json',
-  //     data: {
-  //       team: team
-  //     }
-  //   });
-  //   return request.then(handleSuccess, handleError)
-  // }
 
   function updateTeam(team){
     var request = $http({
