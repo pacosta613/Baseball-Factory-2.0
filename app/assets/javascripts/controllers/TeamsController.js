@@ -1,9 +1,12 @@
 function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   var ctrl = this;
+  ctrl.editFlag = false;
+  ctrl..selectedId = 0;
   ctrl.removeTeam = removeTeam;
-  ctrl.editTeam = editTeam;
+  ctrl.loadTeams = loadTeams
   ctrl.removeCurrentTeam = removeCurrentTeam;
   ctrl.addPlayer = addPlayer;
+  ctrl.editTeam = editTeam;
 
   activate();
 
@@ -53,8 +56,9 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
     })
   }
 
-  function editTeam(){
-
+  function editTeam(id){
+    ctrl.editFlag = true;
+    ctrl..selectedId = id;
   }
 }
 

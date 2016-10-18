@@ -2,15 +2,15 @@
 
   'use strict';
 
-   var editDivisionForm = {
-    transclude: true, 
-    templateUrl: 'components/edit-division-form.html',
-    bindings: {
-      parentController: "=",
-      divisionId: "="
-    },
-    controller: EditDivisionFormController
-   };
+    var editDivisionForm = {
+      transclude: true, 
+      templateUrl: 'components/division/edit-division-form.html',
+      bindings: {
+        parentController: "=",
+        divisionId: "="
+      },
+      controller: EditDivisionFormController
+    };
 
    function EditDivisionFormController($http, DivisionService) {
     var ctrl = this;
@@ -24,17 +24,16 @@
     }
 
     function getDivision(id) {
-      return DivisionService.getDivision(id) 
+      DivisionService.getDivision(id) 
        .then(setDivision);
 
       function setDivision(data) {
-        console.log(data)
-        return ctrl.division = data;
+        ctrl.division = data;
       }
     }
 
     function updateDivision() {
-      return DivisionService.updateDivision(ctrl.division) 
+      DivisionService.updateDivision(ctrl.division) 
        .then(removeEditFlag);
 
       function removeEditFlag() {
@@ -43,6 +42,7 @@
         ctrl.parentController.loadDivisions();
       }
     }
+    
    }
 
    angular

@@ -1,4 +1,4 @@
-function DivisionService($http, $q){
+function DivisionService($http){
   return({
     getDivisions: getDivisions,
     addDivision: addDivision,
@@ -46,7 +46,7 @@ function DivisionService($http, $q){
   function updateDivision(division){
     var request = $http({
       method: 'put',
-      url: '/divisions' + "/" + division.id + ".json",
+      url: '/divisions/' + division.id + ".json",
       data: {
         division: division
       }
