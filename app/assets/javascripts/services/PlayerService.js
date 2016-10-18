@@ -31,10 +31,18 @@ function PlayerService($http){
       }
     });
     return request.then(handleSuccess, handleError);
-    console.log(handleError);
   }
 
-  function updatePlayer(){}
+  function updatePlayer(player){
+    var request = $http({
+      method: 'put',
+      url: '/players/' + player.id + '.json',
+      data: {
+        player: player
+      }
+    });
+    return request.then(handleSuccess, handleError)
+  }
 
   function handleSuccess(response){
     return response.data;
