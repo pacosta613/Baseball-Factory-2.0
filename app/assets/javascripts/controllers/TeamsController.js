@@ -1,7 +1,7 @@
 function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   var ctrl = this;
   ctrl.editFlag = false;
-  ctrl..selectedId = 0;
+  ctrl.selectedId = 0;
   ctrl.removeTeam = removeTeam;
   ctrl.loadTeams = loadTeams
   ctrl.removeCurrentTeam = removeCurrentTeam;
@@ -29,9 +29,11 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
 
   function loadTeams(){
     TeamService.getTeams()
-      .then(function(teams){
-        ctrl.teams = teams;
-      });
+      .then(setTeam)
+        
+      function setTeam(data){
+        ctrl.teams = data;
+      };
   };
 
   function removeTeam(team){
@@ -58,7 +60,7 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
 
   function editTeam(id){
     ctrl.editFlag = true;
-    ctrl..selectedId = id;
+    ctrl.selectedId = id;
   }
 }
 

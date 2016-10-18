@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_division, except: [:index, :destroy, :show]
+  before_action :find_division, except: [:index, :destroy, :show, :update]
   before_action :find_team, only: [:show, :update, :destroy]
 
   def index

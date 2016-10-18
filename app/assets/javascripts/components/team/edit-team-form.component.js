@@ -14,12 +14,12 @@
   }
 
   function EditTeamFormController(TeamService, $http){
-    ctrl = this;
+    var ctrl = this;
     ctrl.updateTeam = updateTeam;
 
     activate()
 
-    function active(){
+    function activate(){
       getTeam(ctrl.teamId)
     }
 
@@ -39,7 +39,7 @@
         function removeEditFlat(){
           ctrl.parentController.editFlag = false;
           ctrl.parentController.selectedId = 0;
-          ctrl.parentController.loadTeam();
+          ctrl.parentController.loadTeams();
         }
     }
     

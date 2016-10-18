@@ -3,6 +3,10 @@
 
   <input ng-model="search.name" placeholder="Team Name" />
 
+  <div ng-if="ctrl.editFlag">
+    <edit-team-form parent-controller="ctrl" team-id="ctrl.selectedId"></edit-team-form>
+  </div>
+
   <ul class="list_team">
     <li ng-repeat="team in ctrl.teams | filter:search | orderBy: '$index' "><br>
        {{$index + 1}}: <a href="#" ui-sref="league.team({id: team.id})">{{team.name}} </a>
