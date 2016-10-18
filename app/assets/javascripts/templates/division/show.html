@@ -6,8 +6,8 @@
 
   <h2>Teams</h2>
   <ul class="list_team">
-    <li ng-repeat="team in ctrl.division.teams">
-      <a href="#" ui-sref="league.team({id: team.id})">{{team.name}}</a>
+    <li ng-repeat="team in ctrl.division.teams | orderBy: '$index' ">
+      {{$index + 1}}: <a href="#" ui-sref="league.team({id: team.id})">{{team.name}}</a>
     </li>
   </ul>
   <h1>Create A Team</h1>
