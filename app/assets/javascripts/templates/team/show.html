@@ -1,7 +1,12 @@
 <div class="text-center">
   <h3>{{ctrl.team.name}}</h3>
 
+  <button ng-click="ctrl.addPlayer()">Add Player</button>
   <button href="#" ng-click="ctrl.removeCurrentTeam()">Delete</button>
+
+  <div ng-if="ctrl.addFlag">
+    <add-player-form></add-player-form>
+  </div>
 
   <h2>Players</h2>
   <ul class="list_player">
@@ -10,11 +15,4 @@
     </li>
   </ul>
 
-  <form ng-submit="ctrl.addPlayer()">
-    <input type="text" placeholder="First Name" name="first_name" ng-model="ctrl.player.first_name">
-    <input type="text" placeholder="Last Name" name="last_name" ng-model="ctrl.player.last_name">
-    <input type="text" placeholder="Position" name="position" ng-model="ctrl.player.position">
-    <input type="text" placeholder="Jersey Number" name="jersey_number" ng-model="ctrl.player.jersey_number">
-    <input type="submit" name="Add Player">
-  </form>
 </div>

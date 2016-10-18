@@ -1,5 +1,6 @@
 function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   var ctrl = this;
+  ctrl.addFlag = false;
   ctrl.editFlag = false;
   ctrl.selectedId = 0;
   ctrl.removeTeam = removeTeam;
@@ -51,11 +52,12 @@ function TeamsController(TeamService, $scope, $location, $state, $stateParams) {
   };
 
   function addPlayer(){
-    ctrl.player.team_id = ctrl.team.id
-    TeamService.addPlayers(ctrl.player)
-    .then(function(player){
-      $state.go($state.current, {}, {reload: true});
-    })
+    // ctrl.player.team_id = ctrl.team.id
+    // TeamService.addPlayers(ctrl.player)
+    // .then(function(player){
+    //   $state.go($state.current, {}, {reload: true});
+    // })
+    ctrl.addFlag = true;
   }
 
   function editTeam(id){
