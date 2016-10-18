@@ -4,6 +4,7 @@ function DivisionsController(DivisionService, $scope, $state, $stateParams){
   ctrl.editFlag = false;
   ctrl.selectedId = 0;
   ctrl.addDivision = addDivision;
+  ctrl.loadDivisions = loadDivisions;
   ctrl.removeDivision = removeDivision;
   ctrl.editDivision = editDivision;
   ctrl.removeCurrentDivision = removeCurrentDivision;
@@ -56,11 +57,6 @@ function DivisionsController(DivisionService, $scope, $state, $stateParams){
   function editDivision(id){
     ctrl.editFlag = true;
     ctrl.selectedId = id;
-    // //debugger
-    // DivisionService.editDivision($scope.division)
-    //   .then(function(){
-    //     $state.go($state.current, {}, {reload: true});
-    //   })
   }
 
   function removeCurrentDivision(){
