@@ -11,9 +11,10 @@
 
   function AddPlayerFormController(TeamService, $state, $stateParams){
     var ctrl = this;
-
     ctrl.addPlayer = addPlayer;
+    
     getTeam();
+
     function getTeam(){
       TeamService.getTeam($stateParams.id)
         .then(setTeam);
