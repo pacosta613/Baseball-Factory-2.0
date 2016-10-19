@@ -2,6 +2,7 @@ function DivisionsController(DivisionService, $scope, $state, $stateParams){
   var ctrl = this;
 
   ctrl.editFlag = false;
+  ctrl.addFlag = false;
   ctrl.selectedId = 0;
   ctrl.addDivision = addDivision;
   ctrl.loadDivisions = loadDivisions;
@@ -41,10 +42,11 @@ function DivisionsController(DivisionService, $scope, $state, $stateParams){
   }
 
   function addDivision(){
-    DivisionService.addDivision(ctrl.division)
-      .then(function(){
-        $state.go("league.divisions", {}, {reload: true});
-      });
+    ctrl.addFlag = true;
+    // DivisionService.addDivision(ctrl.division)
+    //   .then(function(){
+    //     $state.go("league.divisions", {}, {reload: true});
+    //   });
   }
 
   function removeDivision(division){
@@ -67,7 +69,7 @@ function DivisionsController(DivisionService, $scope, $state, $stateParams){
   }
 
   function addTeam(){
-    ctrl.team.division_id = ctrl.division.id;
+      ctrl.team.division_id = ctrl.division.id;
     DivisionService.addTeam(ctrl.team)
       .then(function(team){
         $state.go($state.current, {}, {reload: true});
