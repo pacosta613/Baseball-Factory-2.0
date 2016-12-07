@@ -12,11 +12,6 @@ angular
         url: '/about',
         templateUrl: 'about.html'
       })
-      .state("league.new", {
-        url: 'new',
-        templateUrl: 'division/new.html',
-        controller: 'DivisionsController as ctrl'
-      })
       .state('league.divisions', {
         url: 'divisions',
         templateUrl: 'division/divisions.html',
