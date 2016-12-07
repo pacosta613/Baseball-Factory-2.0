@@ -1,5 +1,5 @@
 function TeamService($http) {
-
+  return "Success"
   return({
     getTeams: getTeams,
     removeTeam: removeTeam,
